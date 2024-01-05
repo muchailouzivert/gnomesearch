@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', path='static/images/favicon.ico') }}">
+  <link href="{{ url_for('static', path='static/moviess.css') }}" rel="stylesheet">
+</head>
+<body>
+  <div class = navbar>
+    {% include 'navbar.html' %}
+  </div>
+
+
+  <div class="container">
+      <h1>Movie List</h1>
+
+      {% for film in films %}
+      <div class="film-item">
+          <h2>{{film.name}}</h2>
+          {% if film.image %}
+          <img src="{{ url_for('static', path='static/images/'+film.image) }}" class="movie_poster"/>
+          {% else %}
+          <img src="{{ url_for('static', path='static/images/noImage.png') }}" class="movie_poster"/>
+          {% endif %}
+          <p><strong>Director:</strong> {{film.director}}</p>
+          <p><strong>Release Year:</strong> {{film.startYear}}</p>
+          <p><strong>Category:</strong> {{film.category}}</p>
+          <p><strong>Duration:</strong> {{film.runtimeMinutes}} minutes</p>
+          <p><strong>Rate:</strong> {{film.rate}}</p>
+          <p><strong>Description:</strong> {{film.description}}</p>
+      </div>
+      {% endfor %}
+  </div>
+  <footer class="main-footer">
+    <p>©gnome search 2023</p>
+  </footer>
+</body>
+
+

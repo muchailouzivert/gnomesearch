@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{{ url_for('static', path='static/navstylee.css') }}" rel="stylesheet">
+</head>
+<body>
+
+  <ul>
+    <li class="active"><a href="/index/">Home</a></li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">Movies</a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item" href="/movies">Movie list</a></li>
+        <li><a class="dropdown-item" href="/add_movie">Add movie</a></li>
+        <li><a class="dropdown-item" href="/delete_movie">Delete-Edit movie</a></li>
+      </ul>
+    </li>
+
+    <form class="search-form d-flex" action="{{ url_for('search_movies') }}" method="get">
+      <input class="form-control me-2" name="query" type="search" placeholder="Search" aria-label="Search">
+      <button id="searchButton" class="active" type="submit">Search</button>
+    </form>
+  </ul>
+
+</body>
+</html>

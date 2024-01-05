@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', path='static/images/favicon.ico') }}">
+  <link href="{{ url_for('static', path='static/edit_movie.css') }}" rel="stylesheet">
+</head>
+<body>
+  <div class = navbar>
+    {% include 'navbar.html' %}
+  </div>
+
+{% block title %}
+	<title>Edit movie</title>
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<h3 class="text-center"> Delete or Edit movie </h3>
+
+		<div id="result" class="text-danger"></div>
+		<table id="datatable" class="table table-striped table-resizable">
+  			<thead>
+    			<tr>
+      				<th scope="col">No.</th>
+      				<th scope="col">Title</th>
+      				<th scope="col">Director</th>
+      				<th scope="col">Year</th>
+							<th scope="col">Category</th>
+							<th scope="col">Duration</th>
+							<th scope="col">Rate</th>
+							<th scope="col">Description</th>
+							<th scope="col">Image</th>
+							<th scope="col">Actions</th> 
+    			</tr>
+  			</thead>
+  			<tbody>
+				{% for film in films %}
+    			<tr>
+      				<th scope="row">{{ loop.index }}</th>
+      				<td>{{ film.name }}</td>
+      				<td>{{ film.director }}</td>
+							<td>{{ film.startYear }}</td>
+							<td>{{ film.category }}</td>
+							<td>{{ film.runtimeMinutes }}</td>
+							<td>{{ film.rate }}</td>
+      				<td>{{ film.description }}</td>
+							<td>
+								{% if film.image %}
+								<img src="{{ url_for('static', path='static/images/'+film.image) }}" class="movie_poster"/>
+								{% else %}
+								<img src="{{ url_for('static', path='static/images/noImage.png') }}" class="movie_poster"/>
+								{% endif %}
+							</td>
+              <td>
+								<button class="Deletebtn" type="button" onclick="deleteMovie('{{ film.name }}')">Delete Movie</button>
+								<a href="/update_movie/{{film.name}}" class="Updatebtn">Edit</a>
+						</td>
+    			</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    async function deleteMovie(movieName) {
+        const response = await fetch(`/delete_movie?name=${movieName}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        const result = await response.json();
+        document.getElementById('result').innerText = result.message;   
+        if (result.message === 'Movie deleted successfully') {
+            setTimeout(() => {
+                location.reload();
+            }, 100);
+        }
+    }
+</script>
+{% endblock %}
+<footer class="main-footer">
+    <p>©gnome search 2023</p>
+</footer>

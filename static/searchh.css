@@ -1,0 +1,103 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto 70px;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+thead{
+  color: #272525;
+  text-shadow: 1px 1px 1px black;
+}
+
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+p {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-lg {
+  font-size: 18px;
+}
+
+.btn {
+  padding: 8px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  th, td {
+      font-size: 14px;
+  }
+
+  .form-control {
+      width: 100%;
+  }
+}
+
+.border {
+  border: 1px solid #ddd;
+}
+
+.border-b {
+  border-bottom: 1px solid #ddd;
+}
+
+.search {
+  margin-top: 20px;
+}
+
+
+.main-footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin-top: auto;
+}
+
+.movie_poster {
+  height: 100px;
+  width: auto;
+}
+

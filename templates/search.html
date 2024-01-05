@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', path='static/images/favicon.ico') }}">
+    <link href="{{ url_for('static', path='static/searchh.css') }}" rel="stylesheet">
+    <script src="https://unpkg.com/htmx.org@1.6.1"></script>
+
+</head>
+<body>
+    <div class="navbar">
+        {% include 'navbar.html' %}
+    </div>
+
+    <main>
+        <section class="summary">
+            <header class="summary-header">
+                <h2>Founded movie</h2>
+            </header>
+
+            <table class="movie">
+                <thead>
+                    <tr>
+                        <th scope="col" class="movies-name">Film name</th>
+                        <th scope="col" class="movies-name">Poster</th>
+                        <th scope="col" class="movies-director">Director</th>
+                        <th scope="col" class="movies-start">Start Year</th>
+                        <th scope="col" class="movies-end">Category</th>
+                        <th scope="col" class="movies-time">Duration</th>
+                        <th scope="col" class="movies-time">Rate</th>
+                        <th scope="col" class="movies-time">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center text-sm" id="table-body">
+                    {% for film in films %}
+                        <tr>
+                            <th>{{ film.name }}</th>
+                            <td>
+                                {% if film.image %}
+								<img src="{{ url_for('static', path='static/images/'+film.image) }}" class="movie_poster"/>
+								{% else %}
+								<img src="{{ url_for('static', path='static/images/noImage.png') }}" class="movie_poster"/>
+								{% endif %}
+                            </td>
+                            <td>{{ film.director }}</td>
+                            <td>{{ film.startYear }}</td>
+                            <td>{{ film.category }}</td>
+                            <td>{{ film.runtimeMinutes }}</td>
+                            <td>{{ film.rate }}</td>
+                            <td>{{ film.description }}</td>
+                        </tr>
+                        <tr>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer class="main-footer">
+        <p>©gnome search 2023</p>
+    </footer>
+</body>
+</html>

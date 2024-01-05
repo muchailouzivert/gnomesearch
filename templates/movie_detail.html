@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', path='static/images/favicon.ico') }}">
+  <link href="{{ url_for('static', path='static/moviess.css') }}" rel="stylesheet">
+</head>
+<body>
+  <div class = navbar>
+    {% include 'navbar.html' %}
+  </div>
+
+{% block title %}
+	<title>Movie Successfully Added!</title>
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<h1>Movie Successfully Added!</h1>
+		<table class="table">
+		  <tbody>
+				<tr>
+					<th scope="row">Image</th>
+					<td>
+						{% if film.image %}
+						<img src="{{ url_for('static', path='static/images/'+ film.image) }}" class="movie_poster"/>
+						{% else %}
+						<img src="{{ url_for('static', path='static/images/noImage.png') }}" class="movie_poster"/>
+						{% endif %}
+					</td>
+				</tr>
+   			 <tr>
+     			 <th scope="row">Title: </th>
+     			 <td>{{film.name}}</td>
+    		</tr>
+    		<tr>
+      			<th scope="row">Director: </th>
+      			<td>{{film.director	}}</td>
+    		</tr>
+				<tr>
+					<th scope="row">Year: </th>
+					<td>{{film.startYear	}}</td>
+			</tr>
+			<tr>
+				<th scope="row">Category: </th>
+				<td>{{film.category	}}</td>
+		</tr>
+		<tr>
+			<th scope="row">Duration: </th>
+			<td>{{film.runtimeMinutes}}</td>
+	</tr>
+	<tr>
+		<th scope="row">Rate: </th>
+		<td>{{film.rate}}</td>
+</tr>
+<tr>
+	<th scope="row">Description: </th>
+	<td>{{film.description}}</td>
+</tr>
+  		</tbody>
+	  </table>
+	</div>
+{% endblock %}
+
+<footer class="main-footer">
+	<p>©gnome search 2023</p>
+</footer>

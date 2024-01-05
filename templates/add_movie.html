@@ -1,0 +1,51 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', path='static/images/favicon.ico') }}">
+  <link href="{{ url_for('static', path='static/add_movie.css') }}" rel="stylesheet">
+</head>
+
+{% include 'navbar.html' %}
+
+<div class="container">
+  <h1>Adding a movie</h1>
+  <form method="POST" action="/add_movie">
+    <div class="mb-3">
+      <label for="name" class="form-label">Film Name</label>
+      <input type="text" class="form-control" required name="name" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="director" class="form-label">Director of The Movie</label>
+      <input type="text" class="form-control" required name="director">
+    </div>
+    <div class="mb-3">
+      <label for="startYear" class="form-label">Start Year</label>
+      <input type="date" class="form-control" required name="startYear">
+    </div>
+    <div class="mb-3">
+      <label for="endYear" class="form-label">Category</label>
+      <input type="text" class="form-control" required name="category">
+    </div>
+    <div class="mb-3">
+      <label for="runtimeMinutes" class="form-label">Duration:</label>
+      <input type="text" class="form-control" required name="runtimeMinutes">
+    </div>
+    <div class="mb-3">
+      <label for="rate" class="form-label">Rate</label>
+      <input type="number" class="form-control" required name="rate">
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea class="form-control" required name="description" rows="4"></textarea>
+    </div>    
+    <div class="mb-3">
+      <label for="image" class="form-label">Image</label>
+      <input type="file" class="form-control" accept="image/*" name="image">
+    </div>    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<footer class="main-footer">
+  <p>©gnome search 2023</p>
+</footer>

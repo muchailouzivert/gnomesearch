@@ -1,0 +1,28 @@
+{% for film in films %}
+    <tr>
+        <td class="border">
+            {% if film.image %}
+            <img src="{{ url_for('static', path='static/images/'+film.image) }}" class="movie_poster"/>
+            {% else %}
+            <img src="{{ url_for('static', path='static/images/noImage.png') }}" class="movie_poster"/>
+            {% endif %}
+        </td>
+        <td class="border">{{ film.name }}</td>
+        <td class="border">{{ film.director }}</td>
+        <td class="border">{{ film.startYear }}</td>
+        <td class="border">{{ film.category }}</td>
+        <td class="border">{{ film.runtimeMinutes }}</td>
+        <td class="border">{{ film.rate }}</td>
+        <td class="border">{{ film.description }}</td>
+    </tr>
+{% endfor %}
+
+<tr>
+    <td class = colspan = "2">
+        <button class="px-3 py-1 bg-blue-600 text-white ml-4"
+        hx-get ="/index?page={{ page + 1}}"
+        hx-target = "closest tr"
+        hx-swap = "outerHTML">Load More</button>
+    </td>
+</tr>
+

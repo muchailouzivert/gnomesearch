@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', path='static/images/favicon.ico') }}">
+    <link href="{{ url_for('static', path='static/main.css') }}" rel="stylesheet">
+    <script src="https://unpkg.com/htmx.org@1.6.1"></script>
+</head>
+<header>
+    <div class="navbar">
+        {% include 'navbar.html' %}
+    </div>
+</header>
+<body>
+    <title>HOME</title>
+    <div class="movie">
+        <p class="movie-title">Movie List</p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Film name</th>
+                    <th>Director</th>
+                    <th>Year</th>
+                    <th>Category</th>
+                    <th>Duration</th>
+                    <th>Rate</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody class="text-center text-sm" id="table-body">
+                {% include 'table.html' %}
+            </tbody>
+        </table>
+    </div>
+    <footer class="main-footer">
+        <p>©gnome search 2023</p>
+    </footer>
+</body>
+</html>

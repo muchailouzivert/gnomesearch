@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  background-color: #4CAF50;
+}
+
+ul li ul li {
+  display: none;
+}
+
+ul li:hover ul li {
+  display: block;
+}
+
+li.active {
+  background-color: #4CAF50;
+}
+
+@media screen and (max-width: 600px) {
+  li {
+    float: none;
+    width: 100%;
+  }
+}
+
+.search-form {
+  float: right;
+  margin: 10px;
+}
+
+.search-form input {
+  padding: 8px;
+}
+
+ul li ul {
+  position: absolute;
+  display: none;
+  background-color: #333;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+ul li ul li {
+  float: none;
+  display: block;
+}
+
+ul li:hover ul {
+  display: block;
+}
+
+li.nav-item.dropdown > a.dropdown-toggle::after {
+  content: " ▼";
+}
+
+
+ul::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.search-form button {
+  background-color: #555;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.search-form button:hover {
+  background-color: #777;
+}

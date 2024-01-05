@@ -1,0 +1,76 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: 50px auto 70px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #eee;
+}
+
+.delete {
+  color: red;
+  text-decoration: none;
+}
+
+.edit {
+  color: blue;
+  text-decoration: none;
+}
+
+.Deletebtn,
+.Updatebtn {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #dc3545; 
+    color: #fff;
+    border: none;
+    padding: 8px 1px;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.Deletebtn:hover,
+.Updatebtn:hover {
+    background-color: #c82333; 
+}
+
+.Updatebtn {
+    background-color: #007bff; 
+}
+
+.Updatebtn:hover {
+    background-color: #0056b3; 
+}
+
+.main-footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.movie_poster {
+  height: 100px;
+  width: auto;
+}
